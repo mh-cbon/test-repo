@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <repomd xmlns="http://linux.duke.edu/metadata/repo" xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <revision>1469554878</revision>
+ <revision>1469556230</revision>
 <data type="filelists">
   <checksum type="sha256">3479173298447f447c70ca821bcec8d3770c68a2e153ce7bf06e6dd821cc94a0</checksum>
   <open-checksum type="sha256">e7194eeba4c2b36ffae65b337aa4d1ead310ddac741d858e2a7cdc0960306d92</open-checksum>
-  <location href="repodata/3479173298447f447c70ca821bcec8d3770c68a2e153ce7bf06e6dd821cc94a0-filelists.xml.gz"/>
-  <timestamp>1469554897</timestamp>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/3479173298447f447c70ca821bcec8d3770c68a2e153ce7bf06e6dd821cc94a0-filelists.xml.gz"/>
+  <timestamp>1469556249</timestamp>
   <size>397</size>
   <open-size>933</open-size>
 </data>
 <data type="other">
   <checksum type="sha256">d12d926e5151ddfbea760de525fa1f1050ae6fb1a449a5fd2c4cd79f183b1de7</checksum>
   <open-checksum type="sha256">65c4a43f19f68fb7ba704e28151d71704a1b720c141442fa00318a3b8687dd52</open-checksum>
-  <location href="repodata/d12d926e5151ddfbea760de525fa1f1050ae6fb1a449a5fd2c4cd79f183b1de7-other.xml.gz"/>
-  <timestamp>1469554897</timestamp>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/d12d926e5151ddfbea760de525fa1f1050ae6fb1a449a5fd2c4cd79f183b1de7-other.xml.gz"/>
+  <timestamp>1469556249</timestamp>
   <size>1276</size>
   <open-size>8717</open-size>
 </data>
 <data type="primary">
   <checksum type="sha256">13e80e96b466fc6ecf050dc84a87522e807f8bd6a381e24c630dadb7a959b71c</checksum>
   <open-checksum type="sha256">cebcb5034c32a2d63e85da05cddd0a2c65acf47def952b56e17889e1867c5d02</open-checksum>
-  <location href="repodata/13e80e96b466fc6ecf050dc84a87522e807f8bd6a381e24c630dadb7a959b71c-primary.xml.gz"/>
-  <timestamp>1469554897</timestamp>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/13e80e96b466fc6ecf050dc84a87522e807f8bd6a381e24c630dadb7a959b71c-primary.xml.gz"/>
+  <timestamp>1469556249</timestamp>
   <size>983</size>
   <open-size>4791</open-size>
 </data>
