@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <repomd xmlns="http://linux.duke.edu/metadata/repo" xmlns:rpm="http://linux.duke.edu/metadata/rpm">
- <revision>1469556230</revision>
+ <revision>1469556582</revision>
 <data type="filelists">
-  <checksum type="sha256">3479173298447f447c70ca821bcec8d3770c68a2e153ce7bf06e6dd821cc94a0</checksum>
-  <open-checksum type="sha256">e7194eeba4c2b36ffae65b337aa4d1ead310ddac741d858e2a7cdc0960306d92</open-checksum>
-  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/3479173298447f447c70ca821bcec8d3770c68a2e153ce7bf06e6dd821cc94a0-filelists.xml.gz"/>
-  <timestamp>1469556249</timestamp>
-  <size>397</size>
-  <open-size>933</open-size>
+  <checksum type="sha1">aace4315af177e7aea75b5affac71865e232e247</checksum>
+  <open-checksum type="sha1">2649f1602871c404a2aaa0cf89c4d866ad4e3f3c</open-checksum>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/aace4315af177e7aea75b5affac71865e232e247-filelists.xml.gz"/>
+  <timestamp>1469556610</timestamp>
+  <size>338</size>
+  <open-size>837</open-size>
 </data>
 <data type="other">
-  <checksum type="sha256">d12d926e5151ddfbea760de525fa1f1050ae6fb1a449a5fd2c4cd79f183b1de7</checksum>
-  <open-checksum type="sha256">65c4a43f19f68fb7ba704e28151d71704a1b720c141442fa00318a3b8687dd52</open-checksum>
-  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/d12d926e5151ddfbea760de525fa1f1050ae6fb1a449a5fd2c4cd79f183b1de7-other.xml.gz"/>
-  <timestamp>1469556249</timestamp>
-  <size>1276</size>
-  <open-size>8717</open-size>
+  <checksum type="sha1">25fd746750d9462d7d70140e342120a1738d8834</checksum>
+  <open-checksum type="sha1">4b8cc2e0a418c1a4cdf062f2e599da6035571985</open-checksum>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/25fd746750d9462d7d70140e342120a1738d8834-other.xml.gz"/>
+  <timestamp>1469556610</timestamp>
+  <size>1209</size>
+  <open-size>8621</open-size>
 </data>
 <data type="primary">
-  <checksum type="sha256">13e80e96b466fc6ecf050dc84a87522e807f8bd6a381e24c630dadb7a959b71c</checksum>
-  <open-checksum type="sha256">cebcb5034c32a2d63e85da05cddd0a2c65acf47def952b56e17889e1867c5d02</open-checksum>
-  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/13e80e96b466fc6ecf050dc84a87522e807f8bd6a381e24c630dadb7a959b71c-primary.xml.gz"/>
-  <timestamp>1469556249</timestamp>
-  <size>983</size>
-  <open-size>4791</open-size>
+  <checksum type="sha1">0c871d068840420e99531bd105c23513323b8c5a</checksum>
+  <open-checksum type="sha1">f85a59294bcf1792126e03c35a83a90836350136</open-checksum>
+  <location xml:base="https://github.com/mh-cbon/test-repo/blob/master/yum/" href="repodata/0c871d068840420e99531bd105c23513323b8c5a-primary.xml.gz"/>
+  <timestamp>1469556610</timestamp>
+  <size>922</size>
+  <open-size>4687</open-size>
 </data>
 </repomd>
