@@ -26,3 +26,6 @@ wget -O apt/changelog-0.0.18_amd64.deb https://github.com/mh-cbon/changelog/rele
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz' deb
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz' deb
 ```
+
+see also
+https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db#.xp456ouyo
