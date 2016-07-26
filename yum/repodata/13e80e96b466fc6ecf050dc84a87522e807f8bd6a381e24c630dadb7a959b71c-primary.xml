@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://linux.duke.edu/metadata/common" xmlns:rpm="http://linux.duke.edu/metadata/rpm" packages="4">
+<package type="rpm">
+  <name>changelog</name>
+  <arch>i386</arch>
+  <version epoch="0" ver="0.0.18" rel="1"/>
+  <checksum type="sha256" pkgid="YES">0d6c1f332ba012c627bb90ba8b4d69372807a179d41df59fc529c87d9af51e27</checksum>
+  <summary>Maintain a changelog easily</summary>
+  <description>Maintain a changelog easily</description>
+  <packager></packager>
+  <url>https://github.com/mh-cbon/go-bin-rpm</url>
+  <time file="1468534012" build="1468534002"/>
+  <size package="837842" installed="2667280" archive="2667536"/>
+  <location xml:base="https://github.com/mh-cbon/changelog/releases/download/0.0.18" href="changelog-386.rpm"/>
+  <format>
+    <rpm:license>LICENSE</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Unspecified</rpm:group>
+    <rpm:buildhost>5a6f56a60df2</rpm:buildhost>
+    <rpm:sourcerpm>changelog-0.0.18-1.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="4392" end="8674"/>
+    <rpm:provides>
+      <rpm:entry name="changelog" flags="EQ" epoch="0" ver="0.0.18" rel="1"/>
+      <rpm:entry name="changelog(x86-32)" flags="EQ" epoch="0" ver="0.0.18" rel="1"/>
+    </rpm:provides>
+  <file>/usr/bin/changelog</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>changelog</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="0.0.18" rel="1"/>
+  <checksum type="sha256" pkgid="YES">0a5bfffdf9374763eb4b9adfccd15ae3aa66b8b30397547013f401f2752483de</checksum>
+  <summary>Maintain a changelog easily</summary>
+  <description>Maintain a changelog easily</description>
+  <packager></packager>
+  <url>https://github.com/mh-cbon/go-bin-rpm</url>
+  <time file="1468534013" build="1468534002"/>
+  <size package="897706" installed="3002232" archive="3002488"/>
+  <location xml:base="https://github.com/mh-cbon/changelog/releases/download/0.0.18" href="changelog-amd64.rpm"/>
+  <format>
+    <rpm:license>LICENSE</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Unspecified</rpm:group>
+    <rpm:buildhost>5a6f56a60df2</rpm:buildhost>
+    <rpm:sourcerpm>changelog-0.0.18-1.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="4392" end="8630"/>
+    <rpm:provides>
+      <rpm:entry name="changelog" flags="EQ" epoch="0" ver="0.0.18" rel="1"/>
+      <rpm:entry name="changelog(x86-64)" flags="EQ" epoch="0" ver="0.0.18" rel="1"/>
+    </rpm:provides>
+  <file>/usr/bin/changelog</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>changelog</name>
+  <arch>i386</arch>
+  <version epoch="0" ver="0.0.20" rel="1"/>
+  <checksum type="sha256" pkgid="YES">0866adab82b42e408c08b0be77b46c890e5061d044f170e8e3bc49d85c565ec9</checksum>
+  <summary>Maintain a changelog easily</summary>
+  <description>Maintain a changelog easily</description>
+  <packager></packager>
+  <url>https://github.com/mh-cbon/go-bin-rpm</url>
+  <time file="1469550536" build="1469550525"/>
+  <size package="845034" installed="2689944" archive="2690200"/>
+  <location xml:base="https://github.com/mh-cbon/changelog/releases/download/0.0.20" href="changelog-386.rpm"/>
+  <format>
+    <rpm:license>LICENSE</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Unspecified</rpm:group>
+    <rpm:buildhost>73f23d2cf10b</rpm:buildhost>
+    <rpm:sourcerpm>changelog-0.0.20-1.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="4392" end="8674"/>
+    <rpm:provides>
+      <rpm:entry name="changelog" flags="EQ" epoch="0" ver="0.0.20" rel="1"/>
+      <rpm:entry name="changelog(x86-32)" flags="EQ" epoch="0" ver="0.0.20" rel="1"/>
+    </rpm:provides>
+  <file>/usr/bin/changelog</file>
+  </format>
+</package>
+<package type="rpm">
+  <name>changelog</name>
+  <arch>x86_64</arch>
+  <version epoch="0" ver="0.0.20" rel="1"/>
+  <checksum type="sha256" pkgid="YES">cbb5f58980f3c0b21d8b55c8c6749d0f2d364ec64525bd13c019c8fb13cecfcf</checksum>
+  <summary>Maintain a changelog easily</summary>
+  <description>Maintain a changelog easily</description>
+  <packager></packager>
+  <url>https://github.com/mh-cbon/go-bin-rpm</url>
+  <time file="1469550537" build="1469550526"/>
+  <size package="904710" installed="3025160" archive="3025416"/>
+  <location xml:base="https://github.com/mh-cbon/changelog/releases/download/0.0.20" href="changelog-amd64.rpm"/>
+  <format>
+    <rpm:license>LICENSE</rpm:license>
+    <rpm:vendor/>
+    <rpm:group>Unspecified</rpm:group>
+    <rpm:buildhost>73f23d2cf10b</rpm:buildhost>
+    <rpm:sourcerpm>changelog-0.0.20-1.src.rpm</rpm:sourcerpm>
+    <rpm:header-range start="4392" end="8630"/>
+    <rpm:provides>
+      <rpm:entry name="changelog" flags="EQ" epoch="0" ver="0.0.20" rel="1"/>
+      <rpm:entry name="changelog(x86-64)" flags="EQ" epoch="0" ver="0.0.20" rel="1"/>
+    </rpm:provides>
+  <file>/usr/bin/changelog</file>
+  </format>
+</package>
+</metadata>
