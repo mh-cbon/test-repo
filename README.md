@@ -15,6 +15,7 @@ git add -A
 git commit -am 'init test repo rpm'
 git push --all
 vagrant ssh -c 'sudo sh -c "curl https://mh-cbon.github.io/test-repo/rpm/changelog.repo > /etc/yum/repos.d/changelog.repo"' rh
+vagrant ssh -c 'which changelog' rh
 ```
 
 ```sh
@@ -32,6 +33,7 @@ vagrant ssh -c 'sudo apt-get install apt-transport-https -y' deb
 vagrant ssh -c 'sudo apt-get update' deb
 vagrant ssh -c 'apt-cache search changelog' deb
 vagrant ssh -c 'sudo apt-get install changelog -y' deb
+vagrant ssh -c 'which changelog' deb
 ```
 
 see also
