@@ -20,8 +20,6 @@ mkdir -p rpm/{i386,x86_64}
 gh-api-cli dl-assets -o ${USER} -r ${REPO} --out rpm/i386/%r-%v_%a.%e -g "*386*rpm"
 gh-api-cli dl-assets -o ${USER} -r ${REPO} --out rpm/x86_64/%r-%v_%a.%e -g "*amd64*rpm"
 
-DESC=`rpm -qip *.rpm | grep Summary | cut -d ':' -f2 | cut -d ' ' -f2- | tail -n 1`
-
 cat <<EOT > createrepo.sh
 yum install createrepo -y
 cd /docker/rpm/i386
@@ -32,6 +30,8 @@ EOT
 docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./createrepo.sh"
 
 
+cat <<EOT > gen-repo-file.sh
+DESC=`rpm -qip *.rpm | grep Summary | cut -d ':' -f2 | cut -d ' ' -f2- | tail -n 1`
 cat <<EOT > rpm/${REPO}.repo
 [${REPO}]
 name=${DESC}
@@ -40,10 +40,16 @@ enabled=1
 skip_if_unavailable=1
 gpgcheck=0
 EOT
+EOT
+docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./gen-repo-file.sh"
+
+rm -f gen-repo-file.sh
+rm -f createrepo.sh
 
 
 git add -A
 git commit -m "Created rpm repository"
 
-set +x # disable debug output because that would display the token in clear text..
-git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" origin gh-pages 2> /dev/null || echo "!!!! gh-pages branch could not be uploaded to your remote" && exit 1
+# set +x # disable debug output because that would display the token in clear text..
+git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" origin gh-pages
+#  2> /dev/null || echo "!!!! gh-pages branch could not be uploaded to your remote" && exit 1
