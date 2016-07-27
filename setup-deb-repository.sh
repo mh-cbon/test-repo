@@ -10,13 +10,15 @@ sudo apt-get install build-essential -y
 curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
 
 
-git checkout -b gh-pages
+git checkout -b gh-pages || echo "branch already exists"
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
 rm -fr apt
 mkdir -p apt/binary-{i386,amd64}
 gh-api-cli dl-assets -o ${USER} -r ${REPO} --out apt/%r-%v_%a.%e -g "*deb" --ver latest
+
+ls -alh
 
 cd apt
 dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz

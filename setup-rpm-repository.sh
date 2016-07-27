@@ -10,7 +10,7 @@ sudo apt-get install build-essential -y
 curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
 
 
-git checkout -b gh-pages
+git checkout -b gh-pages || echo "branch already exists"
 git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
