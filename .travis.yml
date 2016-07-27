@@ -14,9 +14,11 @@ script:
   - git config user.email "mh-cbon@users.noreply.github.com"
   - echo "-----------"
   - rm -fr apt
+  - ls -al
+  - git status
   - git commit -am "clean up"
   - mkdir -p apt/binary-{i386,amd64}
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out apt/%r-%v_%a.%e -g "*deb"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out apt/%r-%v_%a.%e -g "*deb" --ver latest
   - cd apt
   - dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
   - dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
