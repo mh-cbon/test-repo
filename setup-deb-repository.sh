@@ -15,7 +15,9 @@ git config user.name "${USER}"
 git config user.email "${EMAIL}"
 
 rm -fr apt
-mkdir -p apt/binary-{i386,amd64}
+# mkdir -p apt/binary-{i386,amd64} # huh ... it won t work ?
+mkdir -p apt/binary-i386
+mkdir -p apt/binary-amd64
 gh-api-cli dl-assets -o ${USER} -r ${REPO} --out apt/%r-%v_%a.%e -g "*deb" --ver latest
 
 
