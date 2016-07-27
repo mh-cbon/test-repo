@@ -1,5 +1,5 @@
 BASEURL=$1
 
 cat <<EOT
-deb ${BASEURL} /binary-$(ARCH)/
+deb ${BASEURL} /binary-\$(ARCH)/
 EOT

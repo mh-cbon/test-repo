@@ -14,6 +14,7 @@ vagrant ssh -c 'cd /vagrant/yum && createrepo . --no-database -u https://mh-cbon
 git add -A
 git commit -am 'init test repo rpm'
 git push --all
+vagrant ssh -c 'sudo sh -c "curl https://mh-cbon.github.io/test-repo/rpm/changelog.repo > /etc/yum/repos.d/changelog.repo"' rh
 ```
 
 ```sh
@@ -25,6 +26,9 @@ wget -O apt/changelog-0.0.18_386.deb https://github.com/mh-cbon/changelog/releas
 wget -O apt/changelog-0.0.18_amd64.deb https://github.com/mh-cbon/changelog/releases/download/0.0.18/changelog-amd64.deb
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz' deb
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz' deb
+vagrant ssh -c 'sudo wget -O /etc/apt/sources.list.d/changelog.list https://mh-cbon.github.io/test-repo/apt/changelog.list' deb
+vagrant ssh -c 'apt-cache search changelog' deb
+vagrant ssh -c 'sudo apt-get install changelog -y' deb
 ```
 
 see also

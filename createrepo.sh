@@ -1,4 +1,3 @@
-BASEURL=$1
 yum install createrepo -y
 cd /docker/rpm/i386
 createrepo .
