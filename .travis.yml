@@ -1,0 +1,44 @@
+sudo: required
+services:
+  - docker
+language: go
+go:
+  - tip
+
+install:
+  - apt-get install build-essential -y
+  - curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
+
+script:
+  - git status
+  - git checkout -b gh-pages
+  - git config user.name "mh-cbon"
+  - git config user.email "mh-cbon@users.noreply.github.com"
+  - echo "-----------"
+  - rm -fr apt
+  - git commit -am "clean up"
+  - mkdir -p apt/binary-{i386,amd64}
+  - gh-api-cli dl-assets -r mh-cbon -o changelog --out apt/%r-%v_%a.%e -g "*deb"
+  - cd apt
+  - dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
+  - dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
+  - git add -A
+  - git commit -m "Created debian repository"
+  - echo "-----------"
+  - rm -fr yum
+  - git commit -am "clean up"
+  - mkdir -p yum/{i386,x86_64}
+  - gh-api-cli dl-assets -r mh-cbon -o changelog --out yum/i386/%r-%v_%a.%e -g "*386*rpm"
+  - gh-api-cli dl-assets -r mh-cbon -o changelog --out yum/amd64/%r-%v_%a.%e -g "*amd64*rpm"
+  - ls -1 yum/i386 > i386.list
+  - ls -1 yum/amd64 > amd64.list
+  - docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./createrepo.sh https://mh-cbon.github.io/test-repo/yum/"
+  - rm *.list
+  - git add -A
+  - git commit -m "Created yum repository"
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/mh-cbon/test-repo.git" gh-pages
+
+env:
+  global:
+    - secure: >-
+        dttbeFVlNd2Hv9qjBIRt97WTVwQxNu+1Oyko9uOEJDX1vn2m7UZh850xwBVnKU5VewrRtfEHfBGRMxXjfIamHUkv5F5zZq2na6PNBCOJmlQ5vSaUWSxsD5605VKyb4sfC5GMTX2l/3SZeSGOhDljos4XGZRVptbPgu4p5VVWCJ0Soot1cu1XJQfXCHNn9IKZyibZMZWqQAJVfFfESYO2nsUojSbODj95C4uq8/DRcPv91fA3wyJ82/azBrnjufjXFI2db1YmmGfbQvQKkE8MEYxibssOZ3BP0RiKdgf/P2dqLorYSh+WXd/tethtyJjSb0GwB+OidSFKMxLna7OWNWaMExeHq+uhJYNxv4D6avniJ1n45y9BPMFN+Wp8YZZp1GZvXlCYKDrBU4wO9mNHmBUvQx6/yAsgyhwowt/aucj80/OIffKXsScaSy36v+64M/b9l5td0hBIVtW6n0oHicie0gWNgzzHPazfcR+JEkuFYhbCUT8/OJvsQcItJG++qoO0MUo9Vx14WWvRkWq/UdGHTLlWgq3raouCvmgJRGwsrSQKtIEhw6huVlLJjkNnruDA4AZpLeH7erjX/bMOVN1XeoT98//RNBtU33sVi0incRM/u36YQ7EiIzB/KjRzVV00WVSoCRD/rkbIKl5SLfV3bCXzdo1vlcn5qm+XTWA=
