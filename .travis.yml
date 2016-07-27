@@ -13,10 +13,6 @@ script:
   - git config user.name "mh-cbon"
   - git config user.email "mh-cbon@users.noreply.github.com"
   - echo "-----------"
-  - rm -fr apt
-  - ls -al
-  - git status
-  - git commit -am "clean up"
   - mkdir -p apt/binary-{i386,amd64}
   - gh-api-cli dl-assets -o mh-cbon -r changelog --out apt/%r-%v_%a.%e -g "*deb" --ver latest
   - cd apt
@@ -26,8 +22,6 @@ script:
   - git commit -m "Created debian repository"
   - echo "-----------"
   - cd ..
-  - rm -fr yum
-  - git commit -am "clean up"
   - mkdir -p yum/{i386,x86_64}
   - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/i386/%r-%v_%a.%e -g "*386*rpm"
   - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/amd64/%r-%v_%a.%e -g "*amd64*rpm"
