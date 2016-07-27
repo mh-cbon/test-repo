@@ -24,9 +24,9 @@ script:
   - cd ..
   - mkdir -p yum/{i386,x86_64}
   - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/i386/%r-%v_%a.%e -g "*386*rpm"
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/amd64/%r-%v_%a.%e -g "*amd64*rpm"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/x86_64/%r-%v_%a.%e -g "*amd64*rpm"
   - ls -1 yum/i386 > i386.list
-  - ls -1 yum/amd64 > amd64.list
+  - ls -1 yum/x86_64 > x86_64.list
   - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/createrepo.sh > createrepo.sh
   - docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./createrepo.sh https://mh-cbon.github.io/test-repo/yum/"
   - rm *.list
