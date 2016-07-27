@@ -46,4 +46,4 @@ git add -A
 git commit -m "Created rpm repository"
 
 set +x # disable debug output because that would display the token in clear text..
-git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" gh-pages
+git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" gh-pages > /dev/null || echo "!!!! gh-pages branch could not be uploaded to your remote"
