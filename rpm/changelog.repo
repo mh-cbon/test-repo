@@ -1,0 +1,6 @@
+[changelog]
+name=https://mh-cbon.github.io/test-repo/rpm/$basearch/
+baseurl=Maintain a changelog easily
+enabled=1
+skip_if_unavailable=1
+gpgcheck=0
