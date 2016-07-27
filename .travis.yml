@@ -5,38 +5,10 @@ services:
 install:
   - sudo apt-get install build-essential -y
   - curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
-  - rm gh-api-cli-*.deb
 
 script:
-  - git status
-  - git checkout -b gh-pages
-  - git config user.name "mh-cbon"
-  - git config user.email "mh-cbon@users.noreply.github.com"
-  - echo "-----------"
-  - mkdir -p apt/binary-{i386,amd64}
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out apt/%r-%v_%a.%e -g "*deb" --ver latest
-  - cd apt
-  - dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
-  - dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
-  - git add -A
-  - git commit -m "Created debian repository"
-  - echo "-----------"
-  - cd ..
-  - mkdir -p rpm/{i386,x86_64}
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out rpm/i386/%r-%v_%a.%e -g "*386*rpm"
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out rpm/x86_64/%r-%v_%a.%e -g "*amd64*rpm"
-  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/createrepo.sh > createrepo.sh
-  - docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./createrepo.sh"
-  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/rpm-repo-file.sh > rpm-repo-file.sh
-  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/apt-repo-file.sh > apt-repo-file.sh
-  - sh rpm-repo-file.sh changelog "Maintain a changelog easily" "https://mh-cbon.github.io/test-repo/rpm/\$basearch/" > rpm/changelog.repo
-  - sh apt-repo-file.sh "https://mh-cbon.github.io/test-repo/apt/" > apt/changelog.list
-  - rm rpm-repo*
-  - rm apt-repo*
-  - rm createrepo.sh
-  - git add -A
-  - git commit -m "Created rpm repository"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/mh-cbon/test-repo.git" gh-pages
+  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-deb-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com sh -xe
+  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-rpm-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com  sh -xe
 
 env:
   global:
