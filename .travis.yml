@@ -2,10 +2,6 @@ sudo: required
 services:
   - docker
 
-install:
-  - sudo apt-get install build-essential -y
-  - curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
-
 script:
   - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-deb-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com sh -xe
   - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-rpm-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com sh -xe
