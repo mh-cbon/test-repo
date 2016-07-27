@@ -22,7 +22,6 @@ gh-api-cli dl-assets -o ${USER} -r ${REPO} --out apt/%r-%v_%a.%e -g "*deb" --ver
 
 
 cd apt
-ls -alh
 dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
 dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
 
