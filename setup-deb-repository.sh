@@ -25,7 +25,7 @@ cd apt
 dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
 dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
 
-cat <<EOT > apt/changelog.list
+cat <<EOT > ${REPO}.list
 deb [trusted=yes] https://${USER}.github.io/${REPO}/apt/ /binary-\$(ARCH)/
 EOT
 
