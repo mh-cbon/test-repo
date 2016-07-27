@@ -39,7 +39,7 @@ baseurl=https://${USER}.github.io/${REPO}/rpm/\$basearch/
 enabled=1
 skip_if_unavailable=1
 gpgcheck=0
-EOT
+\EOT
 EOT
 docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./gen-repo-file.sh"
 
