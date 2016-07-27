@@ -32,5 +32,5 @@ git add -A
 git commit -m "Created debian repository"
 
 # set +x # disable debug output because that would display the token in clear text..
-git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" origin gh-pages
+git push --force --quiet "https://${GH_TOKEN}@github.com/${GH}.git" gh-pages origin
 #  2> /dev/null || echo "!!!! gh-pages branch could not be uploaded to your remote" && exit 1
