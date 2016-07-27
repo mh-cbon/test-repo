@@ -8,7 +8,7 @@ install:
 
 script:
   - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-deb-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com sh -xe
-  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-rpm-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com  sh -xe
+  - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/setup-rpm-repository.sh | GH=mh-cbon/gh-api-cli EMAIL=mh-cbon@users.noreply.github.com sh -xe
 
 env:
   global:
