@@ -4,6 +4,8 @@ Let s see.
 
 
 ```sh
+travis encrypt --add -r mh-cbon/test-repo GH_TOKEN=...
+
 git branch gh-pages
 git checkout gh-pages
 mkdir yum
