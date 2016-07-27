@@ -27,6 +27,9 @@ wget -O apt/changelog-0.0.18_amd64.deb https://github.com/mh-cbon/changelog/rele
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz' deb
 vagrant ssh -c 'cd /vagrant/apt && dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz' deb
 vagrant ssh -c 'sudo wget -O /etc/apt/sources.list.d/changelog.list https://mh-cbon.github.io/test-repo/apt/changelog.list' deb
+vagrant ssh -c 'cat /etc/apt/sources.list.d/changelog.list' deb
+vagrant ssh -c 'sudo apt-get install apt-transport-https -y' deb
+vagrant ssh -c 'sudo apt-get update' deb
 vagrant ssh -c 'apt-cache search changelog' deb
 vagrant ssh -c 'sudo apt-get install changelog -y' deb
 ```
