@@ -24,7 +24,7 @@ script:
   - cd ..
   - mkdir -p rpm/{i386,x86_64}
   - gh-api-cli dl-assets -o mh-cbon -r changelog --out rpm/i386/%r-%v_%a.%e -g "*386*rpm"
-  - gh-api-cli dl-assets -o mh-cbon -r changelog --out rpm/x86_64/%r-%v_%a.%e -g "*amd64*rpm"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out rpm/x86_64/%r-%v.x86_64.%e -g "*amd64*rpm"
   - ls -1 rpm/i386 > i386.list
   - ls -1 rpm/x86_64 > x86_64.list
   - curl -L https://raw.githubusercontent.com/mh-cbon/test-repo/master/createrepo.sh > createrepo.sh
