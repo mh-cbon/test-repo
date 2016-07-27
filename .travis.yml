@@ -5,6 +5,7 @@ services:
 install:
   - sudo apt-get install build-essential -y
   - curl -L https://raw.githubusercontent.com/mh-cbon/latest/master/install.sh | GH=mh-cbon/gh-api-cli sh -xe
+  - rm gh-api-cli-*.deb
 
 script:
   - git status
@@ -15,7 +16,7 @@ script:
   - rm -fr apt
   - git commit -am "clean up"
   - mkdir -p apt/binary-{i386,amd64}
-  - gh-api-cli dl-assets -r mh-cbon -o changelog --out apt/%r-%v_%a.%e -g "*deb"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out apt/%r-%v_%a.%e -g "*deb"
   - cd apt
   - dpkg-scanpackages -a amd64 . /dev/null | gzip -9c > binary-amd64/Packages.gz
   - dpkg-scanpackages -a 386 . /dev/null | gzip -9c > binary-i386/Packages.gz
@@ -25,8 +26,8 @@ script:
   - rm -fr yum
   - git commit -am "clean up"
   - mkdir -p yum/{i386,x86_64}
-  - gh-api-cli dl-assets -r mh-cbon -o changelog --out yum/i386/%r-%v_%a.%e -g "*386*rpm"
-  - gh-api-cli dl-assets -r mh-cbon -o changelog --out yum/amd64/%r-%v_%a.%e -g "*amd64*rpm"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/i386/%r-%v_%a.%e -g "*386*rpm"
+  - gh-api-cli dl-assets -o mh-cbon -r changelog --out yum/amd64/%r-%v_%a.%e -g "*amd64*rpm"
   - ls -1 yum/i386 > i386.list
   - ls -1 yum/amd64 > amd64.list
   - docker run -v $PWD:/docker fedora /bin/sh -c "cd /docker && sh ./createrepo.sh https://mh-cbon.github.io/test-repo/yum/"
