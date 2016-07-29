@@ -21,7 +21,7 @@ fi
 
 cat <<EOT > aptly.conf
 {
-  "rootDir": "`pwd`/aptly",
+  "rootDir": "`pwd`/apt",
   "downloadConcurrency": 4,
   "downloadSpeedLimit": 0,
   "architectures": [],
