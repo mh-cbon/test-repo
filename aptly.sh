@@ -5,12 +5,10 @@
 REPO=`echo ${GH} | cut -d '/' -f 2`
 USER=`echo ${GH} | cut -d '/' -f 1`
 
-if type "aptly" > /dev/null; then
-  echo "aptly already installed"
-else
-  wget -qO - https://www.aptly.info/pubkey.txt | sudo apt-key add -
-  sudo apt-get update
-  sudo apt-get install aptly
+if [ ! -d "aptly_0.9.7_linux_amd64" ]; then
+  wget https://bintray.com/artifact/download/smira/aptly/aptly_0.9.7_linux_amd64.tar.gz
+  tar xzf aptly_0.9.7_linux_amd64.tar.gz
+  PATH=$PATH:`pwd`/aptly_0.9.7_linux_amd64/
 fi
 
 if type "gh-api-cli" > /dev/null; then
