@@ -3,7 +3,10 @@ services:
   - docker
 
 script:
-  - GH=mh-cbon/gh-api-cli sh aptly.sh -xe
+  - GH=mh-cbon/gh-api-cli sh -xe aptly.sh 
+  - ls -alh
+  - ls -alh apt
+  - ls -alh apt/*
   - ls -alh apt/*/*/*/*
 
 env:
