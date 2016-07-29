@@ -3,8 +3,10 @@ services:
   - docker
 
 script:
-  - GH=mh-cbon/gh-api-cli sh -xe aptly.sh
-  - du -h --max-depth=1 apt
+  - wget -O - https://raw.githubusercontent.com/mh-cbon/latest/master/source.sh | GH=mh-cbon/gh-api-cli sh -xe
+  - sudo apt-get update
+  - sudo apt-get install gh-api-cli
+  - gh-api-cli -h
   - ls -alhR
 
 env:
