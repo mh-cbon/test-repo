@@ -44,5 +44,11 @@ vagrant ssh -c 'cd /vagrant && GH=mh-cbon/gh-api-cli sh aptly.sh' deb
 vagrant ssh -c 'cd /vagrant/aptly && aptly repo show -config=../aptly.conf -with-packages gh-api-cli' deb
 ```
 
+```sh
+vagrant up deb
+vagrant ssh -c 'wget -O - https://raw.githubusercontent.com/mh-cbon/latest/master/source.sh?cg=dfgcc | GH=mh-cbon/gh-api-cli sh -xe' deb
+vagrant ssh -c 'gh-api-cli -h' deb
+```
+
 see also
 https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db#.xp456ouyo
