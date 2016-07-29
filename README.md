@@ -38,5 +38,11 @@ vagrant ssh -c 'sudo apt-get install changelog -y' deb
 vagrant ssh -c 'which changelog' deb
 ```
 
+```sh
+vagrant up deb
+vagrant ssh -c 'cd /vagrant && GH=mh-cbon/gh-api-cli sh aptly.sh' deb
+vagrant ssh -c 'cd /vagrant/aptly && aptly repo show -config=../aptly.conf -with-packages gh-api-cli' deb
+```
+
 see also
 https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db#.xp456ouyo
