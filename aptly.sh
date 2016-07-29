@@ -19,8 +19,6 @@ else
   | GH=mh-cbon/gh-api-cli sh -xe
 fi
 
-cd /vagrant
-
 cat <<EOT > aptly.conf
 {
   "rootDir": "/vagrant/aptly",
