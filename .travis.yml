@@ -3,11 +3,9 @@ services:
   - docker
 
 script:
-  - GH=mh-cbon/gh-api-cli sh -xe aptly.sh 
-  - ls -alh
-  - ls -alh apt
-  - ls -alh apt/*
-  - ls -alh apt/*/*/*/*
+  - GH=mh-cbon/gh-api-cli sh -xe aptly.sh
+  - du -h --max-depth=1 apt
+  - ls -alhR
 
 env:
   global:
