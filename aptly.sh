@@ -21,7 +21,7 @@ fi
 
 cat <<EOT > aptly.conf
 {
-  "rootDir": "/vagrant/aptly",
+  "rootDir": "`pwd`/aptly",
   "downloadConcurrency": 4,
   "downloadSpeedLimit": 0,
   "architectures": [],
