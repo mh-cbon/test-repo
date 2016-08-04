@@ -8,6 +8,18 @@ jekyll -v
 
 REPOPATH=`pwd`
 
+cd ~
+rm -fr jekyll
+git clone https://github.com/${JEKYLL}.git jekyll
+cd ~/jekyll
+rm -fr ~/jekyll/_posts/*
+
+cd ${REPOPATH}
+
+cp README.md ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
+echo "---" | cat - ~/jekyll/index.md > /tmp/out && mv /tmp/out ~/jekyll/index.md
+
 cp config.jekyll.sh ~
 
 if [ `git symbolic-ref --short -q HEAD | egrep 'gh-pages$'` ]; then
@@ -23,17 +35,7 @@ else
   fi
 fi
 
-cd ~
-
-rm -fr jekyll
-git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
-ls -alh
-rm -fr _posts/*
-
-cp /${REPOPATH}/README.md index.md
-echo "---" | cat - index.md > /tmp/out && mv /tmp/out index.md
-echo "---" | cat - index.md > /tmp/out && mv /tmp/out index.md
 
 sh ~/config.jekyll.sh
 
