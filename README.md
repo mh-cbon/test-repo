@@ -2,6 +2,7 @@
 
 Let s see.
 
+### rm repo
 
 ```sh
 travis encrypt --add -r mh-cbon/test-repo GH_TOKEN=...
@@ -19,6 +20,9 @@ git push --all
 vagrant ssh -c 'sudo sh -c "curl https://mh-cbon.github.io/test-repo/rpm/changelog.repo > /etc/yum/repos.d/changelog.repo"' rh
 vagrant ssh -c 'which changelog' rh
 ```
+
+
+### deb repo
 
 ```sh
 vagrant up deb
@@ -48,6 +52,45 @@ vagrant ssh -c 'cd /vagrant/aptly && aptly repo show -config=../aptly.conf -with
 vagrant up deb
 vagrant ssh -c 'wget -O - https://raw.githubusercontent.com/mh-cbon/latest/master/source.sh?cg=dfgcc | GH=mh-cbon/gh-api-cli sh -xe' deb
 vagrant ssh -c 'gh-api-cli -h' deb
+```
+
+
+### gh-pages update
+
+```sh
+vagrant up deb
+vagrant ssh -c "sudo apt-get install nodejs git ruby ruby-dev curl -y" deb
+vagrant ssh -c "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3" deb
+vagrant ssh -c "curl -sSL https://get.rvm.io | bash -s stable --ruby" deb
+vagrant ssh -c "source /home/vagrant/.rvm/scripts/rvm" deb
+vagrant ssh -c "gem -v" deb
+vagrant ssh -c "jekyll -v" deb
+vagrant ssh -c "ls -alh" deb
+vagrant ssh -c "gem install bundler jekyll" deb
+vagrant ssh -c "cd ~ && git clone https://github.com/pietromenna/jekyll-cayman-theme.git" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && ls -alh" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && rm -fr _posts/*" deb
+vagrant ssh -c "cp /vagrant/README.md ~/jekyll-cayman-theme/index.md && cd ~/jekyll-cayman-theme" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && sh /vagrant/prepend.sh" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && sh /vagrant/config.yml.sh" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && bundle install" deb
+vagrant ssh -c "cat ~/jekyll-cayman-theme/index.md" deb
+vagrant ssh -c "cat ~/jekyll-cayman-theme/_config.yml" deb
+vagrant ssh -c "cat ~/jekyll-cayman-theme/_includes/page-header.html" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme && jekyll serve --host=0.0.0.0" deb
+vagrant ssh -c "cd ~/jekyll-cayman-theme" deb
+vagrant ssh -c "git checkout -b gh-pages" deb
+```
+
+```sh
+vagrant up deb
+vagrant ssh -c "sudo apt-get install nodejs git ruby ruby-dev curl -y" deb
+vagrant ssh -c "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3" deb
+vagrant ssh -c "curl -sSL https://get.rvm.io | bash -s stable --ruby" deb
+vagrant ssh -c "source /home/vagrant/.rvm/scripts/rvm" deb
+vagrant ssh -c "gem install bundler jekyll" deb
+vagrant ssh -c "cd /vagrant/ && git reset --hard HEAD && git checkout master" deb
+vagrant ssh -c "cd /vagrant/ && GH=mh-cbon/test-repo JEKYLL=pietromenna/jekyll-cayman-theme sh update-ghpages.sh" deb
 ```
 
 see also
