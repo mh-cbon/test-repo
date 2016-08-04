@@ -19,6 +19,14 @@ author:
   name:       ${OWNER}
   url:        ${REPOURL}
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 # Gems
 gems:
   - github-pages

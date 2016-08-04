@@ -90,6 +90,8 @@ vagrant ssh -c "curl -sSL https://get.rvm.io | bash -s stable --ruby" deb
 vagrant ssh -c "source /home/vagrant/.rvm/scripts/rvm" deb
 vagrant ssh -c "gem install bundler jekyll" deb
 vagrant ssh -c "cd /vagrant/ && git reset --hard HEAD && git checkout master" deb
+vagrant ssh -c "ls -alh ~/jekyll" deb
+vagrant ssh -c "cat ~/jekyll/index.md" deb
 vagrant ssh -c "cd /vagrant/ && GH=mh-cbon/test-repo JEKYLL=pietromenna/jekyll-cayman-theme sh update-ghpages.sh" deb
 ```
 
