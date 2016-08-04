@@ -2,7 +2,7 @@
 
 Let s see.
 
-### rm repo
+### rpm repo
 
 ```sh
 travis encrypt --add -r mh-cbon/test-repo GH_TOKEN=...
