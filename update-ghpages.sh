@@ -25,6 +25,7 @@ fi
 
 cd ~
 
+rm -fr jekyll
 git clone https://github.com/${JEKYLL}.git jekyll
 cd ~/jekyll
 ls -alh
